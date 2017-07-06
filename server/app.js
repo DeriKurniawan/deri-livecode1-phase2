@@ -11,14 +11,14 @@ mongoose.connect(url, (err, res)=>{
   console.log('you are connoct to database on ', url);
 });
 
-//var foods = require('./routes/foods');
+var foods = require('./routes/food');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-//app.use('/api/food', foods);
+app.use('/api/food', foods);
 
 app.listen(3000, ()=>{
   console.log('you are on port 3000');
