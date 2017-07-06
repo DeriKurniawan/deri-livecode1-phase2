@@ -13,6 +13,7 @@ mongoose.connect(url, (err, res)=>{
 });
 
 var foods = require('./routes/food');
+var restaurants = require('./routes/restaurant');
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/food', foods);
+app.use('/api/restaurant', restaurants);
 
 app.listen(3000, ()=>{
   console.log('you are on port 3000');
