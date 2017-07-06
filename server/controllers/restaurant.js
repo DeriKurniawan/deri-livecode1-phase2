@@ -28,5 +28,22 @@ model.getOne = function(req, res){
   })
 }
 
+model.create = function(req, res){
+  //console.log('ini req.body di food.create : ', req.body);
+  let body = req.body;
+  Restaurant.create(body, (err, result)=>{
+    if(err){
+      res.status(400).send({
+        message: 'error on database',
+        error: err
+      })
+    } else {
+      res.send({
+        msg: 'success create on database',
+        data: result
+      });
+    }
+  })
+}
 
 module.exports = model;
