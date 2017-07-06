@@ -77,6 +77,21 @@ model.update = function(req, res){
     })
 }
 
-
+model.delete = function(req, res){
+  let id = req.params.id;
+  Food.findByIdAndRemove(req.params.id, (err, result)=>{
+    if(err){
+      res.status(400).send({
+        message: 'something wrong about database',
+        error: err
+      })
+    } else {
+      res.send({
+        msg: 'delete food is success!!',
+        data: result
+      })
+    }
+  })
+}
 
 module.exports = model;

@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 
 //require mongoose and connect
 var mongoose = require('mongoose');
+mongoose.Promise('bluebird');
 var url = 'mongodb://localhost:27017/derikurniawan1';
 mongoose.connect(url, (err, res)=>{
   if(err){
